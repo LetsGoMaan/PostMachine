@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Posts, {PostType} from "./Posts";
+import AddForm from "./AddForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+
+const [posts, setPosts] = useState<Array<PostType>>([
+    {id: "1", title: "OneTitle", body: "yo"},
+    {id: "2", title: "TwoTitle", body: "yoyo"},
+    {id: "3", title: "ThreeTitle", body: "yoyoyo"},
+])
+
+
+    const addPost = (title: string, body: string) => {
+        const newPost =  {id: "i", title: title, body: body}
+        setPosts([newPost,...posts])
+    }
+
+
+    return (
+        <div>
+            <AddForm addPost = {addPost}/>
+            <Posts title={"Post Machine"} posts={posts}></Posts>
+        </div>
+
+    )
 }
-
 export default App;

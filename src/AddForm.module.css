@@ -1,0 +1,23 @@
+.wrapper {
+    margin-top: 50px;
+
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.button {
+    width: 300px;
+    height: 150px;
+    background: green;
+}
+
